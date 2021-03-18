@@ -1,0 +1,11 @@
+import cv2
+import numpy as np
+
+img = np.zeros((512, 512, 3))
+print(img)
+img[:]=255,0,255
+
+cv2.putText(img, "AKSHAY", (300,100),cv2.FONT_HERSHEY_COMPLEX,1,(0,25,0),1)
+cv2.imshow("Image", img)
+
+cv2.waitKey(0)
