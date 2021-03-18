@@ -1,0 +1,20 @@
+import cv2
+import numpy as np
+
+cv2.imset(3, 640)
+cv2.imset(4, 480)
+
+img = cv2.imread("Thor.png")
+kernel = np.ones((5, 5), np.uint8)
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+blur = cv2.GaussianBlur(gray, (7,7), 0)
+Canny = cv2.Canny(img, 100, 100)
+Dialation = cv2.dilate(Canny,kernel, iterations=1 )
+Eroded = cv2.erode(Dialation, kernel, iterations=1)
+
+cv2.imshow("Gray Image", gray)
+cv2.imshow("Blur Image", blur)
+cv2.imshow("Curve", Canny)
+cv2.imshow("Dilation", Dialation)
+cv2.imshow("Eroded", Eroded)
+cv2.waitKey(0)
